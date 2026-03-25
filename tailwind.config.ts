@@ -9,13 +9,13 @@ export default {
       center: true,
       padding: "1.5rem",
       screens: {
-        "2xl": "1200px",
+        "2xl": "1100px",
       },
     },
     extend: {
       fontFamily: {
-        heading: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['"DM Serif Display"', 'Georgia', 'serif'],
+        body: ['"DM Sans"', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -51,17 +51,11 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        cta: {
-          DEFAULT: "hsl(var(--cta))",
-          foreground: "hsl(var(--cta-foreground))",
-          hover: "hsl(var(--cta-hover))",
+        brand: {
+          green: "hsl(var(--brand-green-light))",
+          blue: "hsl(var(--brand-blue))",
+          yellow: "hsl(var(--brand-yellow))",
         },
-        info: {
-          DEFAULT: "hsl(var(--info))",
-          foreground: "hsl(var(--info-foreground))",
-        },
-        urgency: "hsl(var(--urgency))",
-        "success-light": "hsl(var(--success-light))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -87,20 +81,10 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(48 95% 55% / 0.4)" },
-          "50%": { boxShadow: "0 0 35px hsl(48 95% 55% / 0.7)" },
-        },
-        "float": {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-6px)" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
-        "float": "float 3s ease-in-out infinite",
       },
     },
   },
