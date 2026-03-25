@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin } from "lucide-react";
+import logo from "../assets/logo.png";
 
 const Footer = () => {
   return (
@@ -6,8 +7,11 @@ const Footer = () => {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <span className="text-lg font-heading text-foreground">
-              ABC <span className="text-primary">Dedetização</span>
+            <span className="flex items-center gap-2">
+              <img src={logo} alt="ABC Dedetização" className="h-12 w-auto" />
+              <span className="text-lg font-heading text-foreground">
+                ABC <span className="text-primary">Dedetização</span>
+              </span>
             </span>
             <p className="text-muted-foreground text-sm mt-3 leading-relaxed max-w-xs">
               Controle de pragas profissional com segurança, eficiência e garantia há mais de 12 anos.

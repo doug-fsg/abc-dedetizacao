@@ -35,29 +35,38 @@ const AboutSection = () => {
             </p>
 
             <ul className="mt-8 space-y-3">
-              {features.map((f) => (
-                <li key={f} className="flex items-center gap-3 text-sm text-foreground">
+              {features.map((f, i) => (
+                <motion.li 
+                  key={f} 
+                  className="flex items-center gap-3 text-sm text-foreground"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 + i * 0.05 }}
+                >
                   <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
                   {f}
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>
 
-          <motion.div
-            className="grid grid-cols-3 gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            {stats.map((s) => (
-              <div key={s.label} className="bg-secondary rounded-xl p-6 text-center">
+          <div className="grid grid-cols-3 gap-4">
+            {stats.map((s, i) => (
+              <motion.div 
+                key={s.label} 
+                className="bg-secondary rounded-xl p-6 text-center"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 + i * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+              >
                 <div className="text-3xl md:text-4xl font-heading text-primary">{s.value}</div>
                 <div className="text-xs text-muted-foreground mt-1">{s.label}</div>
-              </div>
+              </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

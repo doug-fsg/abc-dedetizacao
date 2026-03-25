@@ -63,11 +63,15 @@ const ServicesSection = () => {
           {services.map((s, i) => (
             <motion.div
               key={s.title}
-              className="bg-card rounded-xl p-6 border border-border hover:border-primary/20 transition-all duration-300 group"
-              initial={{ opacity: 0, y: 20 }}
+              className="bg-card rounded-xl p-6 border border-border hover:border-primary/50 transition-all duration-300 group shadow-sm hover:shadow-md cursor-default"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.06 }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              whileHover={{ 
+                y: -5,
+                transition: { duration: 0.2 }
+              }}
             >
               <div className={`w-11 h-11 rounded-lg ${s.color} flex items-center justify-center mb-4`}>
                 <s.icon className="w-5 h-5" />

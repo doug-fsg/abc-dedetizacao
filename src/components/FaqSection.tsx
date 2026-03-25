@@ -52,14 +52,22 @@ const FaqSection = () => {
         >
           <Accordion type="single" collapsible className="space-y-2">
             {faqs.map((f, i) => (
-              <AccordionItem key={i} value={`faq-${i}`} className="bg-card rounded-xl border border-border px-5">
-                <AccordionTrigger className="text-left text-sm font-semibold text-foreground hover:no-underline font-body">
-                  {f.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-sm leading-relaxed">
-                  {f.a}
-                </AccordionContent>
-              </AccordionItem>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <AccordionItem value={`faq-${i}`} className="bg-card rounded-xl border border-border px-5">
+                  <AccordionTrigger className="text-left text-sm font-semibold text-foreground hover:no-underline font-body">
+                    {f.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-sm leading-relaxed">
+                    {f.a}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             ))}
           </Accordion>
         </motion.div>

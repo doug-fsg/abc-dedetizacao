@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero-pest-control.jpg";
+import heroImage from "../assets/hero-pest-control.jpg";
 
 const Hero = () => {
   return (
@@ -8,9 +8,9 @@ const Hero = () => {
       <div className="container">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <span className="inline-block text-sm font-medium text-primary bg-secondary px-3 py-1 rounded-full mb-6">
               Controle de Pragas Profissional
@@ -43,9 +43,9 @@ const Hero = () => {
 
           <motion.div
             className="relative"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
             <div className="rounded-2xl overflow-hidden aspect-[4/3]">
               <img
@@ -56,11 +56,16 @@ const Hero = () => {
                 height={1080}
               />
             </div>
-            {/* Floating stat card */}
-            <div className="absolute -bottom-4 -left-4 bg-card border border-border rounded-xl p-4 shadow-lg">
+            <motion.div 
+              className="absolute -bottom-4 -left-4 bg-card border border-border rounded-xl p-4 shadow-lg"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1, duration: 0.5 }}
+              whileHover={{ scale: 1.05 }}
+            >
               <div className="text-2xl font-heading text-primary">5.000+</div>
               <div className="text-xs text-muted-foreground">clientes atendidos</div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

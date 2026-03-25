@@ -39,11 +39,12 @@ const SocialProofSection = () => {
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
-              className="bg-card rounded-xl p-6 border border-border"
-              initial={{ opacity: 0, y: 20 }}
+              className="bg-card rounded-xl p-6 border border-border hover:shadow-lg hover:border-primary/20 transition-all duration-300"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              whileHover={{ scale: 1.02 }}
             >
               <div className="flex gap-0.5 mb-4">
                 {Array.from({ length: 5 }).map((_, j) => (
