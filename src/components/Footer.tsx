@@ -1,47 +1,46 @@
-import { Shield, MapPin, Phone, Mail } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-foreground py-12">
+    <footer className="border-t border-border py-12">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Shield className="w-6 h-6 text-cta" />
-              <span className="text-xl font-bold text-background">ABC Dedetização</span>
-            </div>
-            <p className="text-background/50 text-sm leading-relaxed">
-              Há 12 anos protegendo lares e empresas contra pragas urbanas com segurança, eficiência e garantia.
+            <span className="text-lg font-heading text-foreground">
+              ABC <span className="text-primary">Dedetização</span>
+            </span>
+            <p className="text-muted-foreground text-sm mt-3 leading-relaxed max-w-xs">
+              Controle de pragas profissional com segurança, eficiência e garantia há mais de 12 anos.
             </p>
           </div>
           <div>
-            <h4 className="font-bold text-background mb-4">Links Rápidos</h4>
-            <ul className="space-y-2 text-sm text-background/50">
-              <li><a href="#servicos" className="hover:text-cta transition-colors">Serviços</a></li>
-              <li><a href="#beneficios" className="hover:text-cta transition-colors">Benefícios</a></li>
-              <li><a href="#depoimentos" className="hover:text-cta transition-colors">Depoimentos</a></li>
-              <li><a href="#faq" className="hover:text-cta transition-colors">FAQ</a></li>
+            <h4 className="font-semibold text-foreground text-sm mb-4 font-body">Navegação</h4>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><a href="#servicos" className="hover:text-foreground transition-colors">Serviços</a></li>
+              <li><a href="#sobre" className="hover:text-foreground transition-colors">Sobre</a></li>
+              <li><a href="#depoimentos" className="hover:text-foreground transition-colors">Depoimentos</a></li>
+              <li><a href="#faq" className="hover:text-foreground transition-colors">FAQ</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-bold text-background mb-4">Contato</h4>
-            <ul className="space-y-3 text-sm text-background/50">
+            <h4 className="font-semibold text-foreground text-sm mb-4 font-body">Contato</h4>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-cta" />
+                <Phone className="w-4 h-4 text-primary" />
                 (11) 99999-9999
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-cta" />
+                <Mail className="w-4 h-4 text-primary" />
                 contato@abcdedetizacao.com.br
               </li>
               <li className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-cta" />
+                <MapPin className="w-4 h-4 text-primary" />
                 São Paulo, SP e Região
               </li>
             </ul>
           </div>
         </div>
-        <div className="border-t border-background/10 mt-10 pt-6 text-center text-xs text-background/30">
+        <div className="border-t border-border mt-10 pt-6 text-center text-xs text-muted-foreground">
           © {new Date().getFullYear()} ABC Dedetização. Todos os direitos reservados.
         </div>
       </div>

@@ -1,71 +1,79 @@
-import { Bug, Rat, TreeDeciduous, Zap, SprayCan } from "lucide-react";
 import { motion } from "framer-motion";
+import { Bug, Rat, TreeDeciduous, Zap, SprayCan, Shield } from "lucide-react";
 
 const services = [
   {
     icon: Bug,
     title: "Desinsetização",
-    targets: "Baratas, formigas, pulgas, traças",
-    description: "Eliminamos insetos com tratamento profundo em todos os ambientes. Resultado visível em 24h.",
+    description: "Controle de baratas, formigas, pulgas e traças com métodos seguros e eficazes.",
+    color: "bg-secondary text-primary",
   },
   {
     icon: Rat,
     title: "Desratização",
-    targets: "Ratos, camundongos, roedores",
-    description: "Controle completo com iscas profissionais e vedação de pontos de entrada.",
+    description: "Eliminação e prevenção de ratos e roedores com iscas profissionais.",
+    color: "bg-brand-blue/10 text-brand-blue",
   },
   {
     icon: TreeDeciduous,
     title: "Descupinização",
-    targets: "Cupins de solo e madeira seca",
-    description: "Tratamento especializado que protege a estrutura do seu imóvel a longo prazo.",
+    description: "Tratamento especializado contra cupins de solo e madeira seca.",
+    color: "bg-secondary text-primary",
   },
   {
     icon: Zap,
     title: "Controle de Mosquitos",
-    targets: "Aedes aegypti, pernilongos",
-    description: "Nebulização e larvicida para eliminar focos e prevenir doenças como dengue e zika.",
+    description: "Nebulização e larvicida para prevenção de dengue, zika e chikungunya.",
+    color: "bg-brand-yellow/15 text-accent-foreground",
   },
   {
     icon: SprayCan,
-    title: "Sanitização de Ambientes",
-    targets: "Bactérias, vírus, fungos",
-    description: "Desinfecção profissional para residências, empresas e condomínios.",
+    title: "Sanitização",
+    description: "Desinfecção profissional de ambientes contra bactérias, vírus e fungos.",
+    color: "bg-brand-blue/10 text-brand-blue",
+  },
+  {
+    icon: Shield,
+    title: "Controle Preventivo",
+    description: "Planos de manutenção periódica para manter seu espaço sempre protegido.",
+    color: "bg-secondary text-primary",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section className="py-16 md:py-24 bg-muted" id="servicos">
+    <section className="py-20 md:py-28 bg-muted/50" id="servicos">
       <div className="container">
         <motion.div
-          className="text-center mb-14"
+          className="max-w-lg mb-14"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-info font-semibold text-sm uppercase tracking-wider">Nossos Serviços</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mt-3">
-            Soluções completas para <span className="text-gradient">cada tipo de praga</span>
+          <span className="text-sm font-medium text-primary">Nossos Serviços</span>
+          <h2 className="text-3xl md:text-4xl text-foreground mt-2 leading-tight">
+            Soluções para cada tipo de praga
           </h2>
+          <p className="text-muted-foreground mt-4">
+            Oferecemos tratamentos completos com produtos aprovados pela ANVISA, seguros para sua família e pets.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((s, i) => (
             <motion.div
               key={s.title}
-              className="bg-card rounded-xl p-7 border border-border hover:shadow-lg transition-all duration-300 group"
-              initial={{ opacity: 0, y: 30 }}
+              className="bg-card rounded-xl p-6 border border-border hover:border-primary/20 transition-all duration-300 group"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
+              transition={{ delay: i * 0.06 }}
             >
-              <div className="w-14 h-14 rounded-xl bg-info/10 flex items-center justify-center mb-5 group-hover:bg-info/20 transition-colors">
-                <s.icon className="w-7 h-7 text-info" />
+              <div className={`w-11 h-11 rounded-lg ${s.color} flex items-center justify-center mb-4`}>
+                <s.icon className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-1">{s.title}</h3>
-              <span className="text-xs text-secondary font-medium">{s.targets}</span>
-              <p className="text-muted-foreground text-sm mt-3 leading-relaxed">{s.description}</p>
+              <h3 className="text-lg font-semibold text-foreground mb-2 font-body">{s.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{s.description}</p>
             </motion.div>
           ))}
         </div>
