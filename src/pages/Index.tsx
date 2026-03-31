@@ -1,9 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import TrustStrip from "@/components/TrustStrip";
+import PestIconStrip from "@/components/PestIconStrip";
 import ServicesSection from "@/components/ServicesSection";
+import PestGallerySection from "@/components/PestGallerySection";
 import AboutSection from "@/components/AboutSection";
+import MissionSection from "@/components/MissionSection";
 import HowItWorks from "@/components/HowItWorks";
-import SocialProofSection from "@/components/SocialProofSection";
 import FaqSection from "@/components/FaqSection";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
@@ -14,10 +17,13 @@ const Index = () => {
     <main>
       <Navbar />
       <Hero />
+      <TrustStrip />
+      <PestIconStrip />
       <ServicesSection />
+      <PestGallerySection />
       <AboutSection />
+      <MissionSection />
       <HowItWorks />
-      <SocialProofSection />
       <FaqSection />
       <CtaSection />
       <Footer />

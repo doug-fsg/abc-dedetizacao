@@ -9,38 +9,38 @@ import {
 const faqs = [
   {
     q: "Os produtos são seguros para crianças e pets?",
-    a: "Sim. Todos os produtos utilizados são aprovados pela ANVISA e seguros para ambientes com crianças e animais de estimação.",
+    a: "Utilizamos produtos e métodos adequados a cada tipo de serviço e à legislação vigente. Orientações de segurança, tempo de reentrada e cuidados após a aplicação são informadas no ato, conforme o caso.",
   },
   {
     q: "Quanto tempo dura o efeito?",
-    a: "Depende do tipo de praga e método aplicado, mas em geral o efeito dura de 3 a 6 meses. Oferecemos planos de manutenção preventiva.",
+    a: "Varia conforme o serviço (higienização de caixas d’água, afastamento de aves, tratamento em silos etc.) e o ambiente. Prazos e necessidade de manutenção são explicados no orçamento.",
   },
   {
-    q: "Preciso sair de casa durante o serviço?",
-    a: "Na maioria dos casos, não. Nossos métodos permitem o uso normal do ambiente. Quando necessário, orientamos uma saída de 2 a 4 horas.",
+    q: "Preciso esvaziar ou interromper o uso de alguma área?",
+    a: "Depende do serviço contratado. Quando houver restrição de acesso ou ventilação, informamos antes da execução.",
   },
   {
-    q: "Vocês atendem empresas e condomínios?",
-    a: "Sim. Atendemos residências, empresas, restaurantes, condomínios e indústrias. Emitimos laudos e certificados exigidos pela vigilância sanitária.",
+    q: "Vocês emitem laudo ou relatório?",
+    a: "Quando o serviço prevê documentação (por exigência do contrato ou do tipo de trabalho), informamos no orçamento o que será entregue ao final.",
   },
   {
-    q: "Como funciona a garantia?",
-    a: "Todos os serviços possuem garantia por escrito. Se as pragas retornarem no período, refazemos o serviço sem custo adicional.",
+    q: "Existe garantia ou retrabalho?",
+    a: "Quaisquer condições de garantia, retrabalho ou visita adicional, quando aplicáveis, ficam descritas no orçamento ou contrato que você assinar.",
   },
 ];
 
 const FaqSection = () => {
   return (
-    <section className="py-20 md:py-28 bg-muted/50" id="faq">
+    <section className="bg-muted/50 py-20 md:py-28" id="faq">
       <div className="container max-w-2xl">
         <motion.div
-          className="text-center mb-12"
+          className="mb-12 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
           <span className="text-sm font-medium text-primary">Dúvidas</span>
-          <h2 className="text-3xl md:text-4xl text-foreground mt-2">
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             Perguntas frequentes
           </h2>
         </motion.div>
@@ -53,17 +53,17 @@ const FaqSection = () => {
           <Accordion type="single" collapsible className="space-y-2">
             {faqs.map((f, i) => (
               <motion.div
-                key={i}
+                key={f.q}
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <AccordionItem value={`faq-${i}`} className="bg-card rounded-xl border border-border px-5">
-                  <AccordionTrigger className="text-left text-sm font-semibold text-foreground hover:no-underline font-body">
+                <AccordionItem value={`faq-${i}`} className="rounded-xl border border-border bg-card px-5">
+                  <AccordionTrigger className="cursor-pointer text-left text-sm font-semibold text-foreground hover:no-underline font-body">
                     {f.q}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-sm leading-relaxed">
+                  <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>

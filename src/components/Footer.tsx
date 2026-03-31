@@ -1,51 +1,74 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 import logo from "../assets/logo.png";
+import { ADDRESS, EMAIL, PHONE_DISPLAY, PHONE_HREF } from "@/config/contact";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-border py-12">
+    <footer className="bg-brand-dark py-14">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
+
           <div>
-            <span className="flex items-center gap-2">
-              <img src={logo} alt="ABC Dedetização" className="h-12 w-auto" />
-              <span className="text-lg font-heading text-foreground">
-                ABC <span className="text-primary">Dedetização</span>
-              </span>
+            <span className="flex flex-wrap items-center gap-2">
+              <img src={logo} alt="ABC Dedetizações" className="h-12 w-auto brightness-0 invert" width={160} height={48} />
             </span>
-            <p className="text-muted-foreground text-sm mt-3 leading-relaxed max-w-xs">
-              Controle de pragas profissional com segurança, eficiência e garantia há mais de 12 anos.
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
+              Controle de pragas, limpeza e higienização com foco em segurança e transparência no orçamento.
             </p>
           </div>
+
           <div>
-            <h4 className="font-semibold text-foreground text-sm mb-4 font-body">Navegação</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#servicos" className="hover:text-foreground transition-colors">Serviços</a></li>
-              <li><a href="#sobre" className="hover:text-foreground transition-colors">Sobre</a></li>
-              <li><a href="#depoimentos" className="hover:text-foreground transition-colors">Depoimentos</a></li>
-              <li><a href="#faq" className="hover:text-foreground transition-colors">FAQ</a></li>
+            <h4 className="mb-5 text-sm font-semibold uppercase tracking-widest text-white/40">
+              Navegação
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              {[
+                { href: "#servicos", label: "Serviços" },
+                { href: "#galeria-contexto", label: "Contexto & pragas" },
+                { href: "#sobre", label: "Sobre nós" },
+                { href: "#missao", label: "Visão e Missão" },
+                { href: "#como-funciona", label: "Como funciona" },
+                { href: "#faq", label: "Perguntas frequentes" },
+              ].map((l) => (
+                <li key={l.href}>
+                  <a
+                    href={l.href}
+                    className="cursor-pointer text-white/70 transition-colors duration-200 hover:text-white"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
+
           <div>
-            <h4 className="font-semibold text-foreground text-sm mb-4 font-body">Contato</h4>
-            <ul className="space-y-2.5 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-primary" />
-                (11) 99999-9999
+            <h4 className="mb-5 text-sm font-semibold uppercase tracking-widest text-white/40">
+              Contato
+            </h4>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-center gap-3">
+                <Phone className="h-4 w-4 shrink-0 text-accent" aria-hidden />
+                <a href={PHONE_HREF} className="cursor-pointer text-white/70 hover:text-white">
+                  {PHONE_DISPLAY}
+                </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-primary" />
-                contato@abcdedetizacao.com.br
+              <li className="flex items-center gap-3">
+                <Mail className="h-4 w-4 shrink-0 text-accent" aria-hidden />
+                <a href={`mailto:${EMAIL}`} className="cursor-pointer text-white/70 hover:text-white">
+                  {EMAIL}
+                </a>
               </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-primary" />
-                São Paulo, SP e Região
+              <li className="flex items-start gap-3">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden />
+                <span className="text-white/70">{ADDRESS}</span>
               </li>
             </ul>
           </div>
         </div>
-        <div className="border-t border-border mt-10 pt-6 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} ABC Dedetização. Todos os direitos reservados.
+
+        <div className="mt-12 border-t border-white/10 pt-6 text-center text-xs text-white/35">
+          © {new Date().getFullYear()} ABC Dedetizações. Todos os direitos reservados.
         </div>
       </div>
     </footer>

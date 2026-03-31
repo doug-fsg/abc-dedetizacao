@@ -2,11 +2,13 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import logo from "../assets/logo.png";
+import { WHATSAPP_INFO } from "@/config/contact";
 
 const links = [
   { href: "#servicos", label: "Serviços" },
+  { href: "#galeria-contexto", label: "Pragas" },
   { href: "#sobre", label: "Sobre" },
-  { href: "#depoimentos", label: "Depoimentos" },
+  { href: "#como-funciona", label: "Como funciona" },
   { href: "#faq", label: "FAQ" },
   { href: "#contato", label: "Contato" },
 ];
@@ -15,60 +17,83 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-      <div className="container flex items-center justify-between h-16">
-        <a href="#" className="flex items-center gap-2">
-          <img src={logo} alt="ABC Dedetização" className="h-14 w-auto" />
-        </a>
-
-        <div className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              {l.label}
-            </a>
-          ))}
-          <a
-            href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-medium bg-primary text-primary-foreground px-5 py-2.5 rounded-lg hover:bg-primary/90 transition-colors"
-          >
-            Solicitar Orçamento
+    <div className="fixed top-4 left-4 right-4 z-50 flex justify-center px-0 sm:px-2 pointer-events-none">
+      <nav
+        className="pointer-events-auto w-full max-w-6xl rounded-2xl border border-border bg-background/90 shadow-sm backdrop-blur-md supports-[backdrop-filter]:bg-background/80"
+        aria-label="Principal"
+      >
+        <div className="container flex h-16 items-center justify-between">
+          <a href="#" className="flex cursor-pointer items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+            <img src={logo} alt="ABC Dedetização" className="h-12 w-auto sm:h-14" width={180} height={56} />
           </a>
+
+          <div className="hidden items-center gap-8 md:flex">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className="cursor-pointer text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+              >
+                {l.label}
+              </a>
+            ))}
+            <a
+              href={WHATSAPP_INFO}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cursor-pointer rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground shadow-none transition-opacity duration-200 hover:opacity-90"
+            >
+              Orçamento grátis
+            </a>
+          </div>
+
+          <button
+            type="button"
+            className="cursor-pointer rounded-md p-2 text-foreground md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            onClick={() => setOpen(!open)}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? "Fechar menu" : "Abrir menu"}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
 
-        <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
-          {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
-      </div>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            className="md:hidden bg-background border-t border-border"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-          >
-            <div className="container py-4 space-y-1">
-              {links.map((l) => (
-                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-sm text-muted-foreground hover:text-foreground py-2.5">
-                  {l.label}
-                </a>
-              ))}
-              <a
-                href="https://wa.me/5511999999999"
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              id="mobile-nav"
+              className="overflow-hidden border-t border-border md:hidden"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="container space-y-1 py-4">
+                {links.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    className="block cursor-pointer rounded-md py-2.5 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                  >
+                    {l.label}
+                  </a>
+                ))}
+                <a
+                href={WHATSAPP_INFO}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-sm font-medium bg-primary text-primary-foreground px-5 py-2.5 rounded-lg text-center mt-3"
-              >
-                Solicitar Orçamento
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+                className="mt-3 block cursor-pointer rounded-lg bg-accent px-5 py-3 text-center text-sm font-semibold text-accent-foreground transition-opacity duration-200 hover:opacity-90"
+                >
+                  Orçamento grátis
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
+    </div>
   );
 };
 

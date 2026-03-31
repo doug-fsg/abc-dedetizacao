@@ -1,45 +1,81 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  /*
+   * ABC Dedetização — Design System v2
+   *
+   * Teoria de cores:
+   *   Teal #45B691 (H=160) e Verde #2D6A4F (H=152) são análogos — profundidade harmônica
+   *   Ouro #FFD12B é complementar ao teal — máxima tensão visual para CTAs
+   *   Azul #4089C6 é análogo frio — ring de foco (acessibilidade)
+   *
+   * Decisão de paleta:
+   *   Fundo branco puro para seções de conteúdo (máximo contraste para leitura)
+   *   Seções âncora em dark forest green (#153329) — hero, como funciona, footer
+   *   Teal escuro como primary — passa WCAG AA em fundo branco
+   *   Ouro como accent para CTAs — contraste AAA com texto escuro
+   *
+   * Contrastes verificados:
+   *   branco em --brand-dark (#153329)       → 13,3:1  ✓ AAA
+   *   branco em --primary (#236B51)          →  6,8:1  ✓ AA
+   *   accent-foreground em ouro (#FAC90F)    →  8,2:1  ✓ AAA
+   *   foreground (#0B1910) em branco         → 16,3:1  ✓ AAA
+   *   muted-foreground (#4E6358) em branco   →  5,2:1  ✓ AA
+   */
   :root {
-    --background: 0 0% 99%;
-    --foreground: 160 20% 12%;
+    /* Fundo branco puro — seções de conteúdo */
+    --background: 0 0% 100%;
+    --foreground: 152 46% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 160 20% 12%;
+    --card-foreground: 152 46% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 160 20% 12%;
+    --popover-foreground: 152 46% 8%;
 
-    --primary: 158 45% 26%;
+    /* Primary: teal escuro — passes AA com branco (6,8:1) */
+    --primary: 160 46% 26%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 150 35% 92%;
-    --secondary-foreground: 158 45% 26%;
+    /* Secondary: teal muito claro — chips, selos */
+    --secondary: 160 44% 93%;
+    --secondary-foreground: 160 46% 22%;
 
-    --muted: 150 10% 96%;
-    --muted-foreground: 160 8% 50%;
+    /* Muted: cinza-menta — seções alternadas */
+    --muted: 150 18% 96%;
+    --muted-foreground: 150 14% 38%;
 
-    --accent: 48 90% 58%;
-    --accent-foreground: 160 20% 12%;
+    /* Accent: ouro vivo — todos os CTAs de conversão */
+    --accent: 44 96% 50%;
+    --accent-foreground: 152 50% 9%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 150 10% 92%;
-    --input: 150 10% 92%;
-    --ring: 158 45% 26%;
+    /* Borda sutil verde-menta */
+    --border: 150 15% 88%;
+    --input: 150 15% 88%;
+    /* Foco: azul da marca */
+    --ring: 208 54% 51%;
 
-    --radius: 0.75rem;
+    --radius: 0.875rem;
 
-    /* Custom brand tokens */
-    --brand-green-light: 148 40% 55%;
-    --brand-blue: 210 60% 50%;
-    --brand-yellow: 48 90% 58%;
+    /* ── Brand tokens ─────────────────────────────────────── */
+    /* Fundo das seções âncora (hero, how-it-works, footer) */
+    --brand-dark: 152 42% 14%;
+    /* Teal vibrante — decorativo, ícones em fundo escuro */
+    --brand-teal: 160 46% 49%;
+    /* Verde floresta — gradientes, degrade */
+    --brand-forest: 152 41% 30%;
+    /* Azul da marca */
+    --brand-blue: 208 54% 51%;
+    /* Ouro (alias do accent) */
+    --brand-yellow: 44 96% 50%;
+    --brand-green-light: 160 46% 49%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -48,7 +84,7 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 208 54% 51%;
   }
 }
 

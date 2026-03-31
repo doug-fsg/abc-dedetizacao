@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['"DM Serif Display"', 'Georgia', 'serif'],
-        body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        heading: ['Inter', 'system-ui', 'sans-serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -52,6 +52,9 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         brand: {
+          dark: "hsl(var(--brand-dark))",
+          teal: "hsl(var(--brand-teal))",
+          forest: "hsl(var(--brand-forest))",
           green: "hsl(var(--brand-green-light))",
           blue: "hsl(var(--brand-blue))",
           yellow: "hsl(var(--brand-yellow))",

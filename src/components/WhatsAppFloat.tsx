@@ -1,19 +1,20 @@
 import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import { WHATSAPP_INFO } from "@/config/contact";
 
 const WhatsAppFloat = () => {
   return (
     <motion.a
-      href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços."
+      href={WHATSAPP_INFO}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[hsl(142,70%,45%)] flex items-center justify-center shadow-lg hover:scale-105 transition-transform"
-      initial={{ scale: 0 }}
-      animate={{ scale: 1 }}
-      transition={{ delay: 1, type: "spring" }}
-      aria-label="WhatsApp"
+      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-brand-teal text-white shadow-lg transition-shadow duration-200 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ delay: 0.8, type: "spring", stiffness: 260, damping: 20 }}
+      aria-label="Abrir conversa no WhatsApp"
     >
-      <MessageCircle className="w-6 h-6 text-primary-foreground" />
+      <MessageCircle className="h-7 w-7" aria-hidden />
     </motion.a>
   );
 };
