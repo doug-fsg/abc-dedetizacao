@@ -95,6 +95,8 @@
 
   html {
     scroll-behavior: smooth;
+    /* Navbar fixa + âncoras (#servicos etc.) */
+    scroll-padding-top: 6.5rem;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -105,6 +107,11 @@
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    overflow-x: clip;
+  }
+
+  #root {
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4, h5, h6 {

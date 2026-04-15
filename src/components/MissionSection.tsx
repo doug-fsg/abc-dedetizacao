@@ -37,7 +37,7 @@ function MissionCard({ item, index }: { item: MissionItem; index: number }) {
 
   return (
     <motion.div
-      className="relative overflow-hidden rounded-2xl p-8"
+      className="relative overflow-hidden rounded-2xl p-6 sm:p-8"
       style={{ background: cardGradient }}
       {...cardMotion}
       {...hover}
@@ -59,7 +59,7 @@ function MissionCard({ item, index }: { item: MissionItem; index: number }) {
       </div>
 
       {/* Título em ouro bold, como nos cartazes */}
-      <h3 className="relative mb-4 text-2xl font-bold text-accent">
+      <h3 className="relative mb-4 text-xl font-bold text-accent sm:text-2xl">
         {item.title}
       </h3>
 

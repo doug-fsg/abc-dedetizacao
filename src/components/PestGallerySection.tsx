@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
 import { Bug } from "lucide-react";
-import { useCardHoverLift, useRevealMotion } from "@/lib/motion";
+import { useRevealMotion } from "@/lib/motion";
 
 /**
  * Galeria de contexto: lembra visitantes do problema (pragas/ambientes).
- * antes de passar para conteúdo institucional. Imagens stock (Unsplash).
+ * Visual minimalista (mobile e desktop): sem hover, legenda discreta, tratamento suave na foto.
  */
-/** URLs alinhadas ao rótulo (Unsplash). IDs conferidos nas páginas das fotos. */
 const tiles = [
   {
     src: "https://images.unsplash.com/photo-1688577985002-049d8059c022?auto=format&fit=crop&w=1060&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -33,62 +32,61 @@ const tiles = [
 type Tile = (typeof tiles)[number];
 
 function GalleryTile({ tile, index }: { tile: Tile; index: number }) {
-  const tileMotion = useRevealMotion({ delay: index * 0.08, y: 20 });
-  const hover = useCardHoverLift();
+  const tileMotion = useRevealMotion({ delay: index * 0.05, y: 8, duration: 0.4 });
 
   return (
-    <motion.figure
-      className="group relative aspect-[4/5] overflow-hidden rounded-xl border border-white/10 sm:aspect-[3/4]"
-      {...tileMotion}
-      {...hover}
-    >
-      <img
-        src={tile.src}
-        alt={tile.alt}
-        className="h-full w-full object-cover transition-transform duration-500 motion-reduce:transition-none group-hover:scale-105 motion-reduce:group-hover:scale-100"
-        loading="lazy"
-        decoding="async"
-        width={450}
-        height={600}
-      />
-      <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent px-3 pb-3 pt-12">
-        <span className="text-sm font-semibold text-white">{tile.label}</span>
+    <motion.figure className="flex flex-col" {...tileMotion}>
+        <div className="overflow-hidden rounded-md border border-white/[0.05] bg-white/[0.02]">
+        <img
+          src={tile.src}
+          alt={tile.alt}
+          className="aspect-[4/3] w-full object-cover grayscale-[0.45] opacity-[0.82] contrast-[0.88] sm:aspect-[16/9]"
+          loading="lazy"
+          decoding="async"
+          width={450}
+          height={253}
+        />
+      </div>
+      <figcaption className="mt-2 border-t border-white/[0.06] pt-2 sm:mt-3 sm:pt-3">
+        <span className="block text-[0.6rem] font-normal uppercase leading-tight tracking-[0.14em] text-white/35 sm:text-[0.65rem] sm:tracking-[0.18em]">
+          {tile.label}
+        </span>
       </figcaption>
     </motion.figure>
   );
 }
 
 const PestGallerySection = () => {
-  const headingMotion = useRevealMotion({ y: 16 });
+  const headingMotion = useRevealMotion({ y: 12 });
 
   return (
     <section
-      className="relative scroll-mt-24 bg-brand-dark py-16 md:py-20"
+      className="relative scroll-mt-24 bg-brand-dark py-14 md:py-20"
       id="galeria-contexto"
       aria-labelledby="pest-gallery-heading"
     >
-      <div className="pointer-events-none absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+      <div className="pointer-events-none absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
       <div className="container relative">
-        <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <motion.div {...headingMotion}>
-            <span className="inline-flex items-center gap-2 text-sm font-medium text-accent">
-              <Bug className="h-4 w-4" aria-hidden />
-              Contexto real
+            <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-accent/90">
+              <Bug className="h-3.5 w-3.5" aria-hidden />
+              Contexto
             </span>
             <h2
               id="pest-gallery-heading"
-              className="mt-2 max-w-xl text-2xl font-bold tracking-tight text-white md:text-3xl"
+              className="mt-3 max-w-xl text-lg font-medium tracking-tight text-white/95 md:text-2xl"
             >
               Sabemos o que invade casa, empresa e silos
             </h2>
-            <p className="mt-3 max-w-lg text-sm text-white/65 md:text-base">
+            <p className="mt-3 max-w-lg text-sm leading-relaxed text-white/45 md:text-[0.9375rem] md:text-white/50">
               Cada ambiente pede método certo, da higienização de água ao controle de morcegos e grãos.
             </p>
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-4 lg:gap-8">
           {tiles.map((tile, i) => (
             <GalleryTile key={tile.label} tile={tile} index={i} />
           ))}

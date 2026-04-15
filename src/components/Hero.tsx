@@ -40,11 +40,12 @@ const heroWatermarks: { Icon: typeof Bug; className: string }[] = [
   { Icon: Bird, className: `right-[14%] bottom-[16%] ${wm}` },
   { Icon: Droplets, className: `left-[10%] top-[14%] ${wm}` },
   { Icon: Moon, className: `left-[4%] top-[36%] ${wm}` },
-  { Icon: Wheat, className: `right-[8%] top-[34%] ${wm}` },
-  { Icon: Filter, className: `left-[18%] bottom-[12%] ${wm}` },
-  { Icon: Package, className: `right-[6%] bottom-[36%] ${wm}` },
-  { Icon: Warehouse, className: `left-[22%] top-[6%] ${wm}` },
-  { Icon: SprayCan, className: `left-[14%] bottom-[38%] ${wm}` },
+  /* Menos ícones no < sm: libera leitura e área útil (touch / densidade). */
+  { Icon: Wheat, className: `right-[8%] top-[34%] ${wm} hidden sm:inline-flex` },
+  { Icon: Filter, className: `left-[18%] bottom-[12%] ${wm} hidden sm:inline-flex` },
+  { Icon: Package, className: `right-[6%] bottom-[36%] ${wm} hidden sm:inline-flex` },
+  { Icon: Warehouse, className: `left-[22%] top-[6%] ${wm} hidden sm:inline-flex` },
+  { Icon: SprayCan, className: `left-[14%] bottom-[38%] ${wm} hidden sm:inline-flex` },
 ];
 
 function HeroWatermark({
@@ -76,14 +77,14 @@ const Hero = () => {
   const glowPulse = useAmbientGlowPulse();
 
   return (
-    <section className="relative bg-gradient-to-br from-secondary/80 via-background to-accent/15 pb-10 pt-24 md:pb-14 md:pt-28">
-      <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6">
+    <section className="relative overflow-x-clip bg-gradient-to-br from-secondary/80 via-background to-accent/15 pb-10 pt-[5.5rem] sm:pt-24 md:pb-14 md:pt-28">
+      <div className="relative mx-auto w-full max-w-6xl px-3 sm:px-6">
         <motion.div
           className="grid overflow-hidden rounded-[1.75rem] border border-foreground/10 bg-brand-dark shadow-2xl md:min-h-[560px] md:grid-cols-2 lg:min-h-[600px]"
           {...heroCard}
         >
           {/* Coluna esquerda: texto e CTAs */}
-          <div className="relative flex flex-col px-6 py-10 sm:px-8 sm:py-12 lg:px-14 lg:py-14">
+          <div className="relative flex flex-col px-5 py-8 sm:px-8 sm:py-12 lg:px-14 lg:py-14">
             {heroWatermarks.map(({ Icon, className }, i) => (
               <HeroWatermark key={i} Icon={Icon} className={className} index={i} />
             ))}
@@ -99,7 +100,7 @@ const Hero = () => {
                 Controle de pragas profissional
               </span>
 
-              <h1 className="mb-8 max-w-xl text-4xl font-bold leading-[1.08] tracking-tight text-white md:text-5xl lg:text-[3.15rem]">
+              <h1 className="mb-8 max-w-xl text-balance break-words text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.15rem]">
               Proteção{" "}
                 <span className="text-accent">eficaz</span>
                 {" "}contra pragas.
@@ -139,8 +140,8 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Coluna direita: imagem em altura total, sem “caixa” no meio */}
-          <motion.div className="relative min-h-[300px] w-full md:min-h-0" {...heroImageReveal}>
+          {/* Coluna direita: imagem (este bloco só entra na LP desktop via Index). */}
+          <motion.div className="relative min-h-[280px] w-full md:min-h-0" {...heroImageReveal}>
             <img
               src={heroImage}
               alt="Profissional em serviço de controle de pragas e higienização com equipamento e EPI"

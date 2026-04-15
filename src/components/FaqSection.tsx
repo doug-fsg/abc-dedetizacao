@@ -35,9 +35,9 @@ function FaqAccordionRow({ faq, index }: { faq: (typeof faqs)[number]; index: nu
 
   return (
     <motion.div {...rowMotion}>
-      <AccordionItem value={`faq-${index}`} className="rounded-xl border border-border bg-card px-5">
-        <AccordionTrigger className="cursor-pointer text-left text-sm font-semibold text-foreground hover:no-underline font-body">
-          {faq.q}
+      <AccordionItem value={`faq-${index}`} className="rounded-xl border border-border bg-card px-4 sm:px-5">
+        <AccordionTrigger className="min-h-11 cursor-pointer gap-3 py-3 text-left text-sm font-semibold text-foreground hover:no-underline sm:py-4 font-body [&>svg]:shrink-0">
+          <span className="break-words pr-1">{faq.q}</span>
         </AccordionTrigger>
         <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
           {faq.a}

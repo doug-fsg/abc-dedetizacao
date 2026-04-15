@@ -32,7 +32,7 @@ const CtaSection = () => {
           <h2 className="text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-[2.75rem]">
             Viva sem medo da infestação
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-white/80">
+          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
             Fale com a ABC Desinfestações e receba um orçamento personalizado, sem compromisso e sem burocracia.
           </p>
 
@@ -41,7 +41,7 @@ const CtaSection = () => {
               href={WHATSAPP_ORCAMENTO}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-accent px-8 py-3.5 text-base font-semibold text-accent-foreground shadow-md transition-[filter,box-shadow] duration-200 hover:brightness-105 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+              className="inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-base font-semibold text-accent-foreground shadow-md transition-[filter,box-shadow] duration-200 hover:brightness-105 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary sm:px-8"
               {...waMotion}
             >
               Falar pelo WhatsApp
@@ -49,11 +49,11 @@ const CtaSection = () => {
             </motion.a>
             <motion.a
               href={PHONE_HREF}
-              className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-white/30 px-8 py-3.5 text-base font-medium text-white transition-colors duration-200 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+              className="inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 break-all rounded-lg border border-white/30 px-6 py-3.5 text-base font-medium text-white transition-colors duration-200 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-primary sm:break-normal sm:px-8"
               {...phoneMotion}
             >
-              <Phone className="h-4 w-4" aria-hidden />
-              {PHONE_DISPLAY}
+              <Phone className="h-4 w-4 shrink-0" aria-hidden />
+              <span className="text-center sm:text-left">{PHONE_DISPLAY}</span>
             </motion.a>
           </div>
         </motion.div>

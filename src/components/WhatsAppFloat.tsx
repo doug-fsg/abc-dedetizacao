@@ -12,7 +12,7 @@ const WhatsAppFloat = () => {
       href={WHATSAPP_INFO}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-brand-teal text-white shadow-lg transition-shadow duration-200 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      className="fixed z-50 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-brand-teal text-white shadow-lg transition-shadow duration-200 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 max-[380px]:bottom-4 max-[380px]:right-4 bottom-[max(1.25rem,env(safe-area-inset-bottom,0px))] right-[max(1.25rem,env(safe-area-inset-right,0px))] sm:bottom-6 sm:right-6"
       {...entrance}
       {...press}
       aria-label="Abrir conversa no WhatsApp"

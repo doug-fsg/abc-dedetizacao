@@ -22,7 +22,7 @@ const TrustStrip = () => {
     <section className="bg-primary py-3.5 md:py-4" aria-labelledby="trust-strip-heading">
       <div className="container">
         <motion.div
-          className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm font-medium text-primary-foreground md:gap-x-4 lg:flex-nowrap lg:justify-center lg:gap-x-5"
+          className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-xs font-medium text-primary-foreground sm:gap-x-3 sm:text-sm md:gap-x-4 lg:flex-nowrap lg:justify-center lg:gap-x-5"
           {...stripMotion}
         >
           <p id="trust-strip-heading" className="shrink-0 text-center leading-snug md:text-left">

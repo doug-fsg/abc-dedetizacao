@@ -19,14 +19,17 @@ const Navbar = () => {
   const drawerMotion = useNavbarDrawerMotion();
 
   return (
-    <div className="fixed top-4 left-4 right-4 z-50 flex justify-center px-0 sm:px-2 pointer-events-none">
+    <div className="fixed top-2 left-2 right-2 z-50 flex justify-center px-0 sm:top-4 sm:left-4 sm:right-4 sm:px-2 pointer-events-none">
       <nav
         className="pointer-events-auto w-full max-w-6xl rounded-2xl border border-border bg-background/90 shadow-sm backdrop-blur-md supports-[backdrop-filter]:bg-background/80"
         aria-label="Principal"
       >
         <div className="container flex h-16 items-center justify-between">
-          <a href="#" className="flex cursor-pointer items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-            <img src={logo} alt="ABC Desinfestação" className="h-12 w-auto sm:h-14" width={180} height={56} />
+          <a
+            href="#"
+            className="-ml-1 flex min-h-11 cursor-pointer items-center gap-2 rounded-md px-1 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          >
+            <img src={logo} alt="ABC Desinfestação" className="h-10 w-auto sm:h-12 md:h-14" width={180} height={56} />
           </a>
 
           <div className="hidden items-center gap-8 md:flex">
@@ -51,7 +54,7 @@ const Navbar = () => {
 
           <button
             type="button"
-            className="cursor-pointer rounded-md p-2 text-foreground md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-md text-foreground md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             onClick={() => setOpen(!open)}
             aria-expanded={open}
             aria-controls="mobile-nav"
@@ -71,22 +74,22 @@ const Navbar = () => {
               exit={{ height: 0, opacity: 0 }}
               {...drawerMotion}
             >
-              <div className="container space-y-1 py-4">
+              <div className="container max-h-[min(70vh,28rem)] space-y-1 overflow-y-auto overscroll-contain py-4">
                 {links.map((l) => (
                   <a
                     key={l.href}
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="block cursor-pointer rounded-md py-2.5 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                    className="flex min-h-11 cursor-pointer items-center rounded-md py-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
                   >
                     {l.label}
                   </a>
                 ))}
                 <a
-                href={WHATSAPP_INFO}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 block cursor-pointer rounded-lg bg-accent px-5 py-3 text-center text-sm font-semibold text-accent-foreground transition-opacity duration-200 hover:opacity-90"
+                  href={WHATSAPP_INFO}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 flex min-h-11 cursor-pointer items-center justify-center rounded-lg bg-accent px-5 py-3 text-center text-sm font-semibold text-accent-foreground transition-opacity duration-200 hover:opacity-90"
                 >
                   Orçamento grátis
                 </a>
