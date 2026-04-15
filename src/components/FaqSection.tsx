@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useRevealMotion } from "@/lib/motion";
 
 const faqs = [
   {
@@ -13,7 +14,7 @@ const faqs = [
   },
   {
     q: "Quanto tempo dura o efeito?",
-    a: "Varia conforme o serviço (higienização de caixas d’água, afastamento de aves, tratamento em silos etc.) e o ambiente. Prazos e necessidade de manutenção são explicados no orçamento.",
+    a: "Varia conforme o serviço (higienização de caixas d’água, afastamento de pombos ou morcegos, tratamento em silos etc.) e o ambiente. Prazos e necessidade de manutenção são explicados no orçamento.",
   },
   {
     q: "Preciso esvaziar ou interromper o uso de alguma área?",
@@ -29,45 +30,41 @@ const faqs = [
   },
 ];
 
+function FaqAccordionRow({ faq, index }: { faq: (typeof faqs)[number]; index: number }) {
+  const rowMotion = useRevealMotion({ delay: index * 0.1, x: -10 });
+
+  return (
+    <motion.div {...rowMotion}>
+      <AccordionItem value={`faq-${index}`} className="rounded-xl border border-border bg-card px-5">
+        <AccordionTrigger className="cursor-pointer text-left text-sm font-semibold text-foreground hover:no-underline font-body">
+          {faq.q}
+        </AccordionTrigger>
+        <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+          {faq.a}
+        </AccordionContent>
+      </AccordionItem>
+    </motion.div>
+  );
+}
+
 const FaqSection = () => {
+  const titleMotion = useRevealMotion();
+  const accordionWrap = useRevealMotion({ y: 20 });
+
   return (
     <section className="bg-muted/50 py-20 md:py-28" id="faq">
       <div className="container max-w-2xl">
-        <motion.div
-          className="mb-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <motion.div className="mb-12 text-center" {...titleMotion}>
           <span className="text-sm font-medium text-primary">Dúvidas</span>
           <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
             Perguntas frequentes
           </h2>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <motion.div {...accordionWrap}>
           <Accordion type="single" collapsible className="space-y-2">
             {faqs.map((f, i) => (
-              <motion.div
-                key={f.q}
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <AccordionItem value={`faq-${i}`} className="rounded-xl border border-border bg-card px-5">
-                  <AccordionTrigger className="cursor-pointer text-left text-sm font-semibold text-foreground hover:no-underline font-body">
-                    {f.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
-                    {f.a}
-                  </AccordionContent>
-                </AccordionItem>
-              </motion.div>
+              <FaqAccordionRow key={f.q} faq={f} index={i} />
             ))}
           </Accordion>
         </motion.div>

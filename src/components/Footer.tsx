@@ -1,23 +1,29 @@
+import { motion } from "framer-motion";
 import { Phone, Mail, MapPin } from "lucide-react";
 import logo from "../assets/logo.png";
 import { ADDRESS, EMAIL, PHONE_DISPLAY, PHONE_HREF } from "@/config/contact";
+import { useRevealMotion } from "@/lib/motion";
 
 const Footer = () => {
+  const colA = useRevealMotion({ y: 16 });
+  const colB = useRevealMotion({ delay: 0.06, y: 16 });
+  const colC = useRevealMotion({ delay: 0.12, y: 16 });
+
   return (
     <footer className="bg-brand-dark py-14">
       <div className="container">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
 
-          <div>
+          <motion.div {...colA}>
             <span className="flex flex-wrap items-center gap-2">
-              <img src={logo} alt="ABC Dedetizações" className="h-12 w-auto brightness-0 invert" width={160} height={48} />
+              <img src={logo} alt="ABC Desinfestações" className="h-12 w-auto brightness-0 invert" width={160} height={48} />
             </span>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
               Controle de pragas, limpeza e higienização com foco em segurança e transparência no orçamento.
             </p>
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div {...colB}>
             <h4 className="mb-5 text-sm font-semibold uppercase tracking-widest text-white/40">
               Navegação
             </h4>
@@ -40,9 +46,9 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div {...colC}>
             <h4 className="mb-5 text-sm font-semibold uppercase tracking-widest text-white/40">
               Contato
             </h4>
@@ -64,11 +70,11 @@ const Footer = () => {
                 <span className="text-white/70">{ADDRESS}</span>
               </li>
             </ul>
-          </div>
+          </motion.div>
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-6 text-center text-xs text-white/35">
-          © {new Date().getFullYear()} ABC Dedetizações. Todos os direitos reservados.
+          © {new Date().getFullYear()} ABC Desinfestações. Todos os direitos reservados.
         </div>
       </div>
     </footer>

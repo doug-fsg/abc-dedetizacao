@@ -6,18 +6,18 @@
 
 @layer base {
   /*
-   * ABC Dedetização — Design System v2
+   * ABC Desinfestação: Design System v2
    *
    * Teoria de cores:
-   *   Teal #45B691 (H=160) e Verde #2D6A4F (H=152) são análogos — profundidade harmônica
-   *   Ouro #FFD12B é complementar ao teal — máxima tensão visual para CTAs
-   *   Azul #4089C6 é análogo frio — ring de foco (acessibilidade)
+   *   Teal #45B691 (H=160) e Verde #2D6A4F (H=152) são análogos: profundidade harmônica
+   *   Ouro #FFD12B é complementar ao teal: máxima tensão visual para CTAs
+   *   Azul #4089C6 é análogo frio: ring de foco (acessibilidade)
    *
    * Decisão de paleta:
    *   Fundo branco puro para seções de conteúdo (máximo contraste para leitura)
-   *   Seções âncora em dark forest green (#153329) — hero, como funciona, footer
-   *   Teal escuro como primary — passa WCAG AA em fundo branco
-   *   Ouro como accent para CTAs — contraste AAA com texto escuro
+   *   Seções âncora em dark forest green (#153329): hero, como funciona, footer
+   *   Teal escuro como primary: passa WCAG AA em fundo branco
+   *   Ouro como accent para CTAs: contraste AAA com texto escuro
    *
    * Contrastes verificados:
    *   branco em --brand-dark (#153329)       → 13,3:1  ✓ AAA
@@ -27,7 +27,7 @@
    *   muted-foreground (#4E6358) em branco   →  5,2:1  ✓ AA
    */
   :root {
-    /* Fundo branco puro — seções de conteúdo */
+    /* Fundo branco puro: seções de conteúdo */
     --background: 0 0% 100%;
     --foreground: 152 46% 8%;
 
@@ -37,26 +37,26 @@
     --popover: 0 0% 100%;
     --popover-foreground: 152 46% 8%;
 
-    /* Primary: teal escuro — passes AA com branco (6,8:1) */
+    /* Primary: teal escuro, passes AA com branco (6,8:1) */
     --primary: 160 46% 26%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary: teal muito claro — chips, selos */
+    /* Secondary: teal muito claro, chips e selos */
     --secondary: 160 44% 93%;
     --secondary-foreground: 160 46% 22%;
 
-    /* Muted: cinza-menta — seções alternadas */
+    /* Muted: tom menta acinzentado, seções alternadas */
     --muted: 150 18% 96%;
     --muted-foreground: 150 14% 38%;
 
-    /* Accent: ouro vivo — todos os CTAs de conversão */
+    /* Accent: ouro vivo, todos os CTAs de conversão */
     --accent: 44 96% 50%;
     --accent-foreground: 152 50% 9%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Borda sutil verde-menta */
+    /* Borda sutil em verde menta */
     --border: 150 15% 88%;
     --input: 150 15% 88%;
     /* Foco: azul da marca */
@@ -64,12 +64,12 @@
 
     --radius: 0.875rem;
 
-    /* ── Brand tokens ─────────────────────────────────────── */
+    /* Brand tokens */
     /* Fundo das seções âncora (hero, how-it-works, footer) */
     --brand-dark: 152 42% 14%;
-    /* Teal vibrante — decorativo, ícones em fundo escuro */
+    /* Teal vibrante: decorativo, ícones em fundo escuro */
     --brand-teal: 160 46% 49%;
-    /* Verde floresta — gradientes, degrade */
+    /* Verde floresta: gradientes e degradê */
     --brand-forest: 152 41% 30%;
     /* Azul da marca */
     --brand-blue: 208 54% 51%;
@@ -91,6 +91,16 @@
 @layer base {
   * {
     @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   body {

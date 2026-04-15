@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import logo from "../assets/logo.png";
 import { WHATSAPP_INFO } from "@/config/contact";
+import { useNavbarDrawerMotion } from "@/lib/motion";
 
 const links = [
   { href: "#servicos", label: "Serviços" },
@@ -15,6 +16,7 @@ const links = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const drawerMotion = useNavbarDrawerMotion();
 
   return (
     <div className="fixed top-4 left-4 right-4 z-50 flex justify-center px-0 sm:px-2 pointer-events-none">
@@ -24,7 +26,7 @@ const Navbar = () => {
       >
         <div className="container flex h-16 items-center justify-between">
           <a href="#" className="flex cursor-pointer items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-            <img src={logo} alt="ABC Dedetização" className="h-12 w-auto sm:h-14" width={180} height={56} />
+            <img src={logo} alt="ABC Desinfestação" className="h-12 w-auto sm:h-14" width={180} height={56} />
           </a>
 
           <div className="hidden items-center gap-8 md:flex">
@@ -67,7 +69,7 @@ const Navbar = () => {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              {...drawerMotion}
             >
               <div className="container space-y-1 py-4">
                 {links.map((l) => (
