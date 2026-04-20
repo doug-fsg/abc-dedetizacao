@@ -41,7 +41,7 @@ const MobileHero = () => {
           </h1>
 
           <p className="mt-4 text-base leading-relaxed text-white/75">
-            Orçamento pelo WhatsApp. Atendimento em São Paulo e região — residencial, comercial e silos.
+            Orçamento pelo WhatsApp. Atendimento em Uruguaiana e região — residencial, comercial e silos.
           </p>
 
           <div className="mt-8 flex flex-col gap-3">
