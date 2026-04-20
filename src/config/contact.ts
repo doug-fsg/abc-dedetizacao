@@ -12,5 +12,5 @@ const WA_INFO = encodeURIComponent("Olá! Gostaria de saber mais sobre os servi�
 /** api.whatsapp.com costuma abrir de forma mais confiável que wa.me em alguns navegadores/dispositivos */
 export const WHATSAPP_ORCAMENTO = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${WA_ORCAMENTO}`;
 export const WHATSAPP_INFO = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${WA_INFO}`;
-export const EMAIL = "contato@abcdesinfestacoe.com.br";
+export const EMAIL = "contato@abcdesinfestacao.com.br";
 export const ADDRESS = "Uruguaiana, RS e região";
