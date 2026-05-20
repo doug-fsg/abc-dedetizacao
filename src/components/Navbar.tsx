@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.png?w=280&format=webp&quality=85";
 import { WHATSAPP_INFO } from "@/config/contact";
 import { useNavbarDrawerMotion } from "@/lib/motion";
 

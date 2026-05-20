@@ -1,6 +1,6 @@
-import equipe1 from "@/assets/equipe1.png";
-import equipe2 from "@/assets/equipe2.png";
-import equipe3 from "@/assets/equipe3.png";
+import equipe1 from "@/assets/equipe1.png?w=900&format=webp&quality=80";
+import equipe2 from "@/assets/equipe2.png?w=900&format=webp&quality=80";
+import equipe3 from "@/assets/equipe3.png?w=900&format=webp&quality=80";
 
 export type AboutGalleryItem = {
   src: string;

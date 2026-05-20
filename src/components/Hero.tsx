@@ -15,7 +15,7 @@ import {
   Warehouse,
   Wheat,
 } from "lucide-react";
-import heroImage from "../assets/hero-pest-control.jpg";
+import heroImage from "../assets/hero-pest-control.jpg?w=1200&format=webp&quality=82";
 import { WHATSAPP_ORCAMENTO } from "@/config/contact";
 import {
   useAmbientFloat,
@@ -146,9 +146,10 @@ const Hero = () => {
               src={heroImage}
               alt="Profissional em serviço de controle de pragas e higienização com equipamento e EPI"
               className="absolute inset-0 h-full w-full object-cover object-[center_30%]"
-              width={1800}
-              height={1200}
+              width={1200}
+              height={800}
               loading="eager"
+              fetchPriority="high"
               decoding="async"
             />
             {/* Fusão suave com o bloco escuro à esquerda */}

@@ -8,12 +8,12 @@ import { useRevealMotion } from "@/lib/motion";
  */
 const tiles = [
   {
-    src: "https://images.unsplash.com/photo-1688577985002-049d8059c022?auto=format&fit=crop&w=1060&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "https://images.unsplash.com/photo-1688577985002-049d8059c022?auto=format&fit=crop&w=480&q=75",
     alt: "Dois roedores próximos a sementes em superfície, exemplo de infestação",
     label: "Roedores",
   },
   {
-    src: "https://images.unsplash.com/photo-1567479403609-5711aa5e0ef6?auto=format&fit=crop&w=900&q=80",
+    src: "https://images.unsplash.com/photo-1567479403609-5711aa5e0ef6?auto=format&fit=crop&w=480&q=75",
     alt: "Barata em superfície, controle de insetos rastejadores",
     label: "Insetos",
   },
@@ -23,7 +23,7 @@ const tiles = [
     label: "Morcegos",
   },
   {
-    src: "https://images.unsplash.com/photo-1684607961356-1d99dc31aee2?auto=format&fit=crop&w=900&q=80",
+    src: "https://images.unsplash.com/photo-1684607961356-1d99dc31aee2?auto=format&fit=crop&w=480&q=75",
     alt: "Fileira de silos metálicos em área rural, grãos e armazenagem",
     label: "Silos & grãos",
   },

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin } from "lucide-react";
-import logoDark from "../assets/logo_dark.png";
+import logoDark from "../assets/logo_dark.png?w=240&format=webp&quality=85";
 import { ADDRESS, EMAIL, PHONE_DISPLAY, PHONE_HREF } from "@/config/contact";
 import { useRevealMotion } from "@/lib/motion";
 

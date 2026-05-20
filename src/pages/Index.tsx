@@ -1,18 +1,13 @@
+import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import TrustStrip from "@/components/TrustStrip";
+import ServicesSection from "@/components/ServicesSection";
+import { DeferredMount } from "@/components/DeferredMount";
 import MobileHero from "@/components/mobile/MobileHero";
 import MobileTrustStrip from "@/components/mobile/MobileTrustStrip";
-import ServicesSection from "@/components/ServicesSection";
-import PestGallerySection from "@/components/PestGallerySection";
-import AboutSection from "@/components/AboutSection";
-import MissionSection from "@/components/MissionSection";
-import HowItWorks from "@/components/HowItWorks";
-import FaqSection from "@/components/FaqSection";
-import CtaSection from "@/components/CtaSection";
-import Footer from "@/components/Footer";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { useIsMobile } from "@/hooks/useIsMobile";
+
+const Hero = lazy(() => import("@/components/Hero"));
+const TrustStrip = lazy(() => import("@/components/TrustStrip"));
 
 const Index = () => {
   const isMobile = useIsMobile();
@@ -26,20 +21,27 @@ const Index = () => {
           <MobileTrustStrip />
         </>
       ) : (
-        <>
+        <Suspense
+          fallback={
+            <div
+              className="min-h-[420px] bg-gradient-to-br from-secondary/80 via-background to-accent/15 pt-[5.5rem] md:min-h-[560px] md:pt-28"
+              aria-hidden
+            />
+          }
+        >
           <Hero />
           <TrustStrip />
-        </>
+        </Suspense>
       )}
       <ServicesSection />
-      <AboutSection />
-      <PestGallerySection />
-      <MissionSection />
-      <HowItWorks />
-      <FaqSection />
-      <CtaSection />
-      <Footer />
-      <WhatsAppFloat />
+      <DeferredMount load={() => import("@/components/AboutSection")} minHeight="480px" />
+      <DeferredMount load={() => import("@/components/PestGallerySection")} minHeight="360px" />
+      <DeferredMount load={() => import("@/components/MissionSection")} minHeight="320px" />
+      <DeferredMount load={() => import("@/components/HowItWorks")} minHeight="400px" />
+      <DeferredMount load={() => import("@/components/FaqSection")} minHeight="280px" />
+      <DeferredMount load={() => import("@/components/CtaSection")} minHeight="200px" />
+      <DeferredMount load={() => import("@/components/Footer")} minHeight="240px" />
+      <DeferredMount load={() => import("@/components/WhatsAppFloat")} minHeight="0" rootMargin="0px" />
     </main>
   );
 };
