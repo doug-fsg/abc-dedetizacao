@@ -29,7 +29,7 @@ const Navbar = () => {
             href="#"
             className="-ml-1 flex min-h-11 cursor-pointer items-center gap-2 rounded-md px-1 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
-            <img src={logo} alt="ABC Desinfestação" className="h-10 w-auto sm:h-12 md:h-14" width={180} height={56} />
+            <img src={logo} alt="ABC Desinfestações" className="h-10 w-auto sm:h-12 md:h-14" width={180} height={56} />
           </a>
 
           <div className="hidden items-center gap-8 md:flex">
